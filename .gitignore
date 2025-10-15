@@ -1,0 +1,15 @@
+# Environnement virtuel
+venv/
+
+# Fichiers Python compilés
+__pycache__/
+*.pyc
+
+# Données brutes trop lourdes
+data/training.1600000.processed.noemoticon.csv
+
+# Modèles
+models/*.joblib
+
+# Fichiers système macOS
+.DS_Store
