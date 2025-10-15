@@ -1,0 +1,22 @@
+artifact_path: file:///Users/nicolaspriscal/Library/Mobile%20Documents/com~apple~CloudDocs/Cours%203A%20EPF/Semestre%209/Application%20I.A/mlops-tp/mlruns/529547590404274644/models/m-66ccab207a334661943bcb4414724253/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.13.5
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+mlflow_version: 3.4.0
+model_id: m-66ccab207a334661943bcb4414724253
+model_size_bytes: 224934
+model_uuid: m-66ccab207a334661943bcb4414724253
+prompts: null
+run_id: 2d367371d45c4b6c8edb7f2ee11582f0
+utc_time_created: '2025-10-15 08:56:33.718441'

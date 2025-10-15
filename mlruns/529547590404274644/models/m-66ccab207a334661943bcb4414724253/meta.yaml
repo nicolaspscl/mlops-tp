@@ -1,0 +1,10 @@
+artifact_location: file:///Users/nicolaspriscal/Library/Mobile%20Documents/com~apple~CloudDocs/Cours%203A%20EPF/Semestre%209/Application%20I.A/mlops-tp/mlruns/529547590404274644/models/m-66ccab207a334661943bcb4414724253/artifacts
+creation_timestamp: 1760518593713
+experiment_id: '529547590404274644'
+last_updated_timestamp: 1760518596018
+model_id: m-66ccab207a334661943bcb4414724253
+model_type: null
+name: LogisticRegression_pipeline
+source_run_id: 2d367371d45c4b6c8edb7f2ee11582f0
+status: 2
+status_message: null

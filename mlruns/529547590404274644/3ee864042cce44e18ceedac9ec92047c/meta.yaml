@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/nicolaspriscal/Library/Mobile%20Documents/com~apple~CloudDocs/Cours%203A%20EPF/Semestre%209/Application%20I.A/mlops-tp/mlruns/529547590404274644/3ee864042cce44e18ceedac9ec92047c/artifacts
+end_time: 1760518597810
+entry_point_name: ''
+experiment_id: '529547590404274644'
+lifecycle_stage: active
+run_id: 3ee864042cce44e18ceedac9ec92047c
+run_name: NaiveBayes
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1760518596024
+status: 3
+tags: []
+user_id: nicolaspriscal

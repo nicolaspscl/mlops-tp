@@ -1,0 +1,10 @@
+artifact_location: file:///Users/nicolaspriscal/Library/Mobile%20Documents/com~apple~CloudDocs/Cours%203A%20EPF/Semestre%209/Application%20I.A/mlops-tp/mlruns/529547590404274644/models/m-3613d48f79b3411e8b6c3c7544f4d18b/artifacts
+creation_timestamp: 1760518596198
+experiment_id: '529547590404274644'
+last_updated_timestamp: 1760518597808
+model_id: m-3613d48f79b3411e8b6c3c7544f4d18b
+model_type: null
+name: NaiveBayes_pipeline
+source_run_id: 3ee864042cce44e18ceedac9ec92047c
+status: 2
+status_message: null
