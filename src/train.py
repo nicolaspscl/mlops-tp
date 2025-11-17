@@ -1,55 +1,45 @@
-# src/train.py (version avec MLflow)
+# src/train.py
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import Pipeline
-import mlflow
-import mlflow.sklearn
+import joblib
 import os
 
-# Définir le nom de l'expérience MLflow
-mlflow.set_experiment("Analyse de Sentiments Twitter")
-
-def train_model(model_name, pipeline):
-    """
-    Entraîne un modèle et log les informations avec MLflow.
-    """
-    with mlflow.start_run(run_name=model_name):
-        # Charger les données
-        train_df = pd.read_csv(os.path.join('data', 'train.csv'))
-        X_train = train_df['text'].astype(str)
-        y_train = train_df['sentiment']
-
-        # Logger les paramètres du modèle
-        params = pipeline.get_params()
-        mlflow.log_param("model_type", model_name)
-        mlflow.log_param("tfidf_ngram_range", params['tfidf__ngram_range'])
-        mlflow.log_param("tfidf_max_features", params['tfidf__max_features'])
-
-        if model_name == 'LogisticRegression':
-            mlflow.log_param("clf_max_iter", params['clf__max_iter'])
-
-        # Entraînement
-        print(f"Entraînement du modèle {model_name}...")
-        pipeline.fit(X_train, y_train)
-        print("Entraînement terminé.")
-
-        # Logger le modèle comme un artefact
-        mlflow.sklearn.log_model(pipeline, f"{model_name}_pipeline")
-        print(f"Modèle {model_name} et paramètres loggés avec MLflow.")
-
 if __name__ == "__main__":
-    # Pipeline pour la Régression Logistique
+
+    # Charger les données d'entraînement
+    train_df = pd.read_csv(os.path.join("data", "train.csv"))
+    X_train = train_df["text"].astype(str)
+    y_train = train_df["sentiment"]
+
+    os.makedirs("models", exist_ok=True)
+
+    # ------------------------------
+    # Modèle 1 : Régression Logistique
+    # ------------------------------
     lr_pipeline = Pipeline([
         ("tfidf", TfidfVectorizer(max_features=5000, ngram_range=(1, 2))),
         ("clf", LogisticRegression(max_iter=200, random_state=42))
     ])
-    train_model('LogisticRegression', lr_pipeline)
 
-    # Pipeline pour Naive Bayes
+    print("Entraînement du modèle LogisticRegression...")
+    lr_pipeline.fit(X_train, y_train)
+    joblib.dump(lr_pipeline, "models/logistic_regression_pipeline.joblib")
+    print("Modèle LogisticRegression sauvegardé.\n")
+
+    # ------------------------------
+    # Modèle 2 : Naive Bayes
+    # ------------------------------
     nb_pipeline = Pipeline([
-        ("tfidf", TfidfVectorizer(max_features=5000, ngram_range=(1, 1))),
+        ("tfidf", TfidfVectorizer(max_features=5000)),
         ("clf", MultinomialNB())
     ])
-    train_model('NaiveBayes', nb_pipeline)
+
+    print("Entraînement du modèle NaiveBayes...")
+    nb_pipeline.fit(X_train, y_train)
+    joblib.dump(nb_pipeline, "models/naive_bayes_pipeline.joblib")
+    print("Modèle NaiveBayes sauvegardé.\n")
+
+    print("Tous les modèles ont été entraînés et sauvegardés dans /models/")
