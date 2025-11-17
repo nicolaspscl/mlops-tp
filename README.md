@@ -51,7 +51,7 @@ Deux modèles ont été entraînés à l’aide d’un **pipeline scikit-learn**
 | Régression Logistique     | **0.7507** | **0.7506**         |
 | Naive Bayes               | 0.7443    | 0.7443             |
 
-✅ Ces résultats confirment la supériorité de la Régression Logistique sur des données textuelles riches, en accord avec la théorie.
+Ces résultats confirment la supériorité de la Régression Logistique sur des données textuelles riches, en accord avec la théorie.
 
 ---
 
@@ -61,18 +61,25 @@ Deux modèles ont été entraînés à l’aide d’un **pipeline scikit-learn**
 ```bash
 git clone https://github.com/nicolaspscl/mlops-tp.git
 cd mlops-tp
+```
 
-
-Creer l'environnement virtuel 
+### 🔧 2. Créer l’environnement virtuel
+```bash
 python3 -m venv venv
-source venv/bin/activate  # macOS / Linux
-venv\Scripts\activate     # Windows
+source venv/bin/activate      # macOS / Linux
+# ou
+venv\Scripts\activate         # Windows
+```
 
-Installer les dépendances 
-requirements.txt
+### 🔧 3. Installer les dépendances
+```bash
+pip install -r requirements.txt
+```
 
-Executer le pipeline complet 
+### ▶️ 4. Exécuter le pipeline complet
+```bash
 python src/load_data.py
 python src/preprocess.py
 python src/train.py
 python src/evaluate.py
+```
